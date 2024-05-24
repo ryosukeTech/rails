@@ -1,0 +1,25 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @user %>
+
+<div class="col-md-8">
+  <% if @user.microposts.any? %>
+    <h3>Microposts (<%= @user.microposts.count %>)</h3>
+    <ol class="microposts">
+      <p>
+        <strong>Content:</strong>
+        <% @user.microposts.map do |micropost| %>
+        <br>
+        <%= link_to micropost[:content], edit_micropost_path(@user.microposts.first) %>
+        <% end %>
+      </p>
+    </ol>
+  <% end %>
+</div>
+
+<div>
+  <%= link_to "Edit this user", edit_user_path(@user) %> |
+  <%= link_to "Back to users", users_path %>
+
+  <%= button_to "Destroy this user", @user,{ method: :delete, data: {turbo_confirm: 'Are you sure?'}} %>
+</div>
