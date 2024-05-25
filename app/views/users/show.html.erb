@@ -3,8 +3,9 @@
 <%= render @user %>
 
 <div class="col-md-8">
+  <% debugger %>
+  <h3>Microposts (<%= @user.microposts.count %>)</h3>
   <% if @user.microposts.any? %>
-    <h3>Microposts (<%= @user.microposts.count %>)</h3>
     <ol class="microposts">
       <p>
         <strong>Content:</strong>
